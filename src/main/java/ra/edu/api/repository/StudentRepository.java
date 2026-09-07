@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import ra.edu.api.entity.Student;
 @Repository
 public interface StudentRepository extends JpaRepository<Student , Long> {
+    boolean existsByPhone(String phone);
 }

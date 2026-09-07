@@ -3,6 +3,7 @@ package ra.edu.api.dto.request;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+import ra.edu.api.validation.contraints.PhoneUnique;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,6 +20,8 @@ public class StudentCreateDto {
     private String email;
     @NotBlank
     @Pattern(regexp = "^[0-9]{10}$")
+    // annotaion kiểm tra số điện thoại ko trùng lặp
+//    @PhoneUnique(message = "Phone must be unique")
     private String phone;
     @NotBlank
     private String address;

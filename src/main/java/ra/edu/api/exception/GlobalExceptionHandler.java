@@ -1,5 +1,6 @@
 package ra.edu.api.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,4 +20,10 @@ public class GlobalExceptionHandler {
         });
         return ResponseEntity.badRequest().body(errs); // 400
     }
+    @ExceptionHandler(PhoneUniqueException.class)
+    public ResponseEntity<?> handlerPhoneUniqueException(PhoneUniqueException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT); // 409
+    }
+
+
 }
